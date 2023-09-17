@@ -50,7 +50,6 @@ test.describe('UI and API scenario Tests', () => {
       expect(restaurantData.data.score).toEqual(score.toString())
 
       // validate the new restaurant was added to the UI
-      //    await expect(await resturantPage.isRestaurantRowExists(id,score), 'restaurant row not found in the UI').toBeTruthy()
       const restaurantRowExists = await resturantPage.isRestaurantRowExists(id, score)
       if (restaurantRowExists) {
         console.log('The new restaurant was added to the UI successfully')
