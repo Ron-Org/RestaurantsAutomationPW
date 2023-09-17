@@ -28,6 +28,6 @@ test.describe('Base API test', () => {
 
     //Assert
     expect(getByIdResponse.status()).toEqual(200)
-    expect(getByIdResponse.ok).toBeTruthy
+    expect(getByIdResponse.ok()).toBeTruthy
   })
 })

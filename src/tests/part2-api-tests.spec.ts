@@ -14,7 +14,7 @@ test('Get restaurant that not exists', async () => {
     let getByIdResponse = await restaurantsAPI.getRestaurantById(restaurantId)
     console.log(`status code: ${getByIdResponse.status()} not found as expected.`)
     expect(getByIdResponse.status()).toEqual(404)
-    expect(getByIdResponse.ok).toBeFalsy
+    expect(getByIdResponse.ok()).toBeFalsy()
   } catch (err) {
     console.log(`error occurred: ${err}`)
   }
@@ -27,7 +27,7 @@ test('Validate amount of restaurants', async () => {
 
     const response = await restaurantsAPI.getRestaurants()
     expect(response.status()).toBe(200)
-    expect(response.ok).toBeTruthy
+    expect(response.ok()).toBeTruthy()
 
     // check for 3 restaurant size
     const responseBody = await response.json()

@@ -18,18 +18,18 @@ test('Delete restaurant test', async () => {
     // check the new restaurant exist
     let getByIdResponse = await restaurantsAPI.getRestaurantById(myNewRest.id)
     expect(getByIdResponse.status()).toEqual(200)
-    expect(getByIdResponse.ok).toBeTruthy
+    expect(getByIdResponse.ok()).toBeTruthy()
 
     // delete the restaurant
     const deleteResponse = await restaurantsAPI.deleteRestaurant(myNewRest.id)
     expect(deleteResponse.status()).toEqual(200)
-    expect(deleteResponse.ok).toBeTruthy
+    expect(deleteResponse.ok()).toBeTruthy()
 
     // check restaurant not exists
     getByIdResponse = await restaurantsAPI.getRestaurantById(myNewRest.id)
     console.log(`After delete restaurant id: ${myNewRest.id} , status code: ${getByIdResponse.status()} not found as expected.`)
     expect(getByIdResponse.status()).toEqual(404)
-    expect(getByIdResponse.ok).toBeFalsy
+    expect(getByIdResponse.ok()).toBeFalsy()
   } catch (err) {
     console.log(`error occurred : ${err}`)
   }
@@ -45,7 +45,7 @@ test('Delete restaurant that not exists in the system test', async () => {
     // delete the restaurant
     const deleteResponse = await restaurantsAPI.deleteRestaurant(restaurantId)
     expect(deleteResponse.status()).toEqual(404)
-    expect(deleteResponse.ok).toBeFalsy
+    expect(deleteResponse.ok()).toBeFalsy()
   } catch (err) {
     console.log(`error occurred : ${err}`)
   }
@@ -65,7 +65,7 @@ test('Edit restaurant test', async () => {
     // check the new restaurant exist
     let getByIdResponse = await restaurantsAPI.getRestaurantById(myNewRest.id)
     expect(getByIdResponse.status()).toEqual(200)
-    expect(getByIdResponse.ok).toBeTruthy
+    expect(getByIdResponse.ok()).toBeTruthy()
 
     // edit the new restaurant to new address
     const updatePayload = { address: 'petack tickva 55' }
@@ -73,12 +73,12 @@ test('Edit restaurant test', async () => {
     // edit the new restaurant and check status
     let patchResponse = await restaurantsAPI.editRestaurant(updatePayload, myNewRest.id)
     expect(patchResponse.status()).toEqual(200)
-    expect(patchResponse.ok).toBeTruthy
+    expect(patchResponse.ok()).toBeTruthy()
 
     // get the new restaurant after edit operation to see if address was changed
     getByIdResponse = await restaurantsAPI.getRestaurantById(myNewRest.id)
     expect(getByIdResponse.status()).toEqual(200)
-    expect(getByIdResponse.ok).toBeTruthy
+    expect(getByIdResponse.ok()).toBeTruthy()
 
     const restaurantData = await getByIdResponse.json()
     console.log(JSON.stringify(restaurantData)) // for debug purposes only
@@ -100,7 +100,7 @@ test('Edit restaurant that not exists in the system test', async () => {
     // edit restaurant that not exists in the system
     const editResponse = await restaurantsAPI.editRestaurant(updatePayload, restaurantId)
     expect(editResponse.status()).toEqual(404)
-    expect(editResponse.ok).toBeFalsy
+    expect(editResponse.ok()).toBeFalsy()
   } catch (err) {
     console.log(`error occurred : ${err}`)
   }

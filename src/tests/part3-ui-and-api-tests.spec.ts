@@ -41,7 +41,7 @@ test.describe('UI and API scenario Tests', () => {
 
       let getByIdResponse = await restaurantsAPI.getRestaurantById(id)
       expect(getByIdResponse.status()).toEqual(200)
-      expect(getByIdResponse.ok).toBeTruthy()
+      expect(getByIdResponse.ok()).toBeTruthy()
 
       const restaurantData = await getByIdResponse.json()
       console.log(JSON.stringify(restaurantData)) // for debug purposes only
@@ -62,7 +62,7 @@ test.describe('UI and API scenario Tests', () => {
       // restaurants using API
       let response = await restaurantsAPI.getRestaurants()
       expect(response.status()).toBe(200)
-      expect(response.ok).toBeTruthy
+      expect(response.ok()).toBeTruthy()
       let responseBody = await response.json()
       let numberOfRestaurantsUI = await resturantPage.getNumberOfRestaurantsInUI()
       console.log(`number restaurants API : ${responseBody.data.length} , number restaurants UI: ${numberOfRestaurantsUI}`)
@@ -76,7 +76,7 @@ test.describe('UI and API scenario Tests', () => {
       // check again after deletion of the last restaurant
       response = await restaurantsAPI.getRestaurants()
       expect(response.status()).toBe(200)
-      expect(response.ok).toBeTruthy
+      expect(response.ok()).toBeTruthy()
       responseBody = await response.json()
       numberOfRestaurantsUI = await resturantPage.getNumberOfRestaurantsInUI()
       console.log(`number restaurants API : ${responseBody.data.length} , number restaurants UI: ${numberOfRestaurantsUI}`)
