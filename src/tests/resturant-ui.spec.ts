@@ -1,12 +1,11 @@
-import { test, expect } from '@playwright/test';
-import { BrowseWrapper } from '../infra/browser/browser';
+import { test, expect } from '@playwright/test'
+import { BrowseWrapper } from '../infra/browser/browser'
 import configJson from '../../config.json'
-import { RestaurantPage } from '../logic/page/restaurant-page';
+import { RestaurantPage } from '../logic/page/restaurant-page'
 
 test.describe('Base UI Test', () => {
-
   let browser: BrowseWrapper
-  let resturantPage: RestaurantPage;
+  let resturantPage: RestaurantPage
 
   test.beforeAll(async () => {
     browser = new BrowseWrapper()
