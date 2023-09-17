@@ -1,5 +1,3 @@
-//const { test, expect } = require('@playwright/test')
-
 import { test, expect, APIResponse } from '@playwright/test'
 import { BrowseWrapper } from '../infra/browser/browser'
 import restaurantsAPI from '../logic/api/restaurantsAPI'

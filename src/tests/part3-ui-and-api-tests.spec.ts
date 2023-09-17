@@ -1,5 +1,3 @@
-//const { test, expect } = require('@playwright/test')
-
 import { test, expect, BrowserContext } from '@playwright/test'
 import { BrowseWrapper } from '../infra/browser/browser'
 import configJson from '../../config.json'
